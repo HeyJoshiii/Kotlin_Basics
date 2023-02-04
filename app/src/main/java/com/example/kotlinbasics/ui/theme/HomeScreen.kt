@@ -7,7 +7,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+
+) {
     Scaffold(
         topBar = {
             HomeAppBar()

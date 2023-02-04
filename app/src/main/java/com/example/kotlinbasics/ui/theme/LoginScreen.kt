@@ -22,21 +22,15 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
-/**
- * Enum Class that contains routes to navigate
- */
-enum class LoginScreen() {
-    Login,
-    Home
-}
+
 
 @Composable
 fun LoginScreen(
-    modifier: androidx.compose.ui.Modifier
+    modifier: Modifier,
+    onContinueButtonClicked: () -> Unit = {}
 ){
     val username = remember { mutableStateOf("Joshiii")}
     val password = remember { mutableStateOf("Joshiii")}
-    val navController = rememberNavController()
 
     Column(
         modifier = modifier.padding(28.dp),
@@ -72,25 +66,13 @@ fun LoginScreen(
         )
 
         Spacer(modifier = Modifier.height(30.dp))
-        
+
         Button(
             modifier = Modifier.fillMaxWidth().height(60.dp),
-            onClick = {},
+            onClick = onContinueButtonClicked,
             shape = RoundedCornerShape(corner = CornerSize(20.dp))
         ) {
-            
-        }
-    }
 
-    NavHost(
-        navController = navController,
-        startDestination = LoginScreen.Login.name,
-        modifier = modifier.padding(innerPadding)
-    ) {
-        composable(route = LoginScreen.Login.name) {
-            HomeScreen(
-                    navController.navigate(LoginScreen.Home.name)
-            )
         }
     }
 }
