@@ -10,13 +10,15 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.kotlinbasics.ui.theme.HomeScreen
 import com.example.kotlinbasics.ui.theme.LoginScreen
+import com.example.kotlinbasics.ui.theme.ProfileScreen
 
 /**
  * Enum Class that contains routes to navigate
  */
 enum class StartScreen() {
     Login,
-    Home
+    Home,
+    Profile
 }
 
 @Composable
@@ -31,12 +33,18 @@ fun KotlinApp() {
         composable(route = StartScreen.Login.name) {
             LoginScreen(
                 onContinueButtonClicked = {navController.navigate(StartScreen.Home.name)},
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
             )
         }
         composable(route = StartScreen.Home.name){
             HomeScreen(
-
+                modifier = Modifier,
+                onProfileButtonClicked = {navController.navigate(StartScreen.Profile.name)}
+            )
+        }
+        composable(route = StartScreen.Profile.name){
+            ProfileScreen(
+                modifier = Modifier
             )
         }
     }

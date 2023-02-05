@@ -20,7 +20,6 @@ class MainActivity : ComponentActivity() {
             KotlinBasicsTheme (darkTheme = false) {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    //Greeting("Android")
                     KotlinApp()
                 }
             }
@@ -28,15 +27,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
 
+/*
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     KotlinBasicsTheme {
         Greeting("Android")
     }
-}
+}*/
