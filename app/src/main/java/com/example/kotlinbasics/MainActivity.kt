@@ -1,6 +1,7 @@
 package com.example.kotlinbasics
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -20,7 +21,7 @@ class MainActivity : ComponentActivity() {
             KotlinBasicsTheme (darkTheme = false) {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
-                    KotlinApp()
+                    KotlinApp(applicationContext)
                 }
             }
         }

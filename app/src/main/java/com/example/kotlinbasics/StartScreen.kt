@@ -1,5 +1,6 @@
 package com.example.kotlinbasics
 
+import android.content.Context
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -22,7 +23,9 @@ enum class StartScreen() {
 }
 
 @Composable
-fun KotlinApp() {
+fun KotlinApp(
+    context: Context
+) {
     val navController = rememberNavController()
 
     NavHost(
@@ -44,7 +47,9 @@ fun KotlinApp() {
         }
         composable(route = StartScreen.Profile.name){
             ProfileScreen(
-                modifier = Modifier
+                modifier = Modifier,
+                context = context,
+                onLogoutButtonClicked = {navController.navigate(StartScreen.Login.name)}
             )
         }
     }

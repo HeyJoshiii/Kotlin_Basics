@@ -16,14 +16,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.example.kotlinbasics.StartScreen
+import com.example.kotlinbasics.shared.loginInfo
 
 
 @Composable
@@ -31,6 +27,7 @@ fun LoginScreen(
     modifier: Modifier,
     onContinueButtonClicked: () -> Unit = {}
 ) {
+    val (storedUsername: String, storedPassword: String) = loginInfo()
     val username = remember { mutableStateOf("") }
     val password = remember { mutableStateOf("") }
 
@@ -73,7 +70,7 @@ fun LoginScreen(
         Spacer(modifier = Modifier.height(30.dp))
 
         Button(
-            enabled = username.value == "Joshiii" && password.value == "Joshiii",
+            enabled = username.value == storedUsername && password.value == storedPassword,
             modifier = Modifier
                 .fillMaxWidth()
                 .height(60.dp),
