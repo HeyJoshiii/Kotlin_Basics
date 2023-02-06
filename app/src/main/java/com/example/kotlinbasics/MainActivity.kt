@@ -28,12 +28,12 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 /*
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    KotlinBasicsTheme {
-        Greeting("Android")
+    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
+        KotlinApp(applicationContext)
     }
-}*/
+}
+*/
