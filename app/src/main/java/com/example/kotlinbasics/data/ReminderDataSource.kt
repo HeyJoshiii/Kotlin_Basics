@@ -1,7 +1,7 @@
 package com.example.kotlinbasics.data
 
-import androidx.lifecycle.LiveData
+import kotlinx.coroutines.flow.Flow
 
-interface ReminderRepository {
+interface ReminderDataSource {
     suspend fun addReminder(reminder: Reminder)
 }

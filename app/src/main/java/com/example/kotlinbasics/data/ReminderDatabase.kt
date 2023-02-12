@@ -10,6 +10,7 @@ abstract class ReminderDatabase: RoomDatabase() {
 
     abstract fun reminderDao(): ReminderDao
 
+    /*
     companion object {
         @Volatile
         private var INSTANCE: ReminderDatabase? = null
@@ -30,4 +31,5 @@ abstract class ReminderDatabase: RoomDatabase() {
             }
         }
     }
+    */
 }

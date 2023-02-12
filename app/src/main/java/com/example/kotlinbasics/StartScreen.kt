@@ -1,14 +1,12 @@
 package com.example.kotlinbasics
 
 import android.content.Context
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.kotlinbasics.reminder.AddReminder
 import com.example.kotlinbasics.ui.theme.HomeScreen
 import com.example.kotlinbasics.ui.theme.LoginScreen
 import com.example.kotlinbasics.ui.theme.ProfileScreen
@@ -19,7 +17,8 @@ import com.example.kotlinbasics.ui.theme.ProfileScreen
 enum class StartScreen() {
     Login,
     Home,
-    Profile
+    Profile,
+    AddReminder
 }
 
 @Composable
@@ -42,7 +41,8 @@ fun KotlinApp(
         composable(route = StartScreen.Home.name){
             HomeScreen(
                 modifier = Modifier,
-                onProfileButtonClicked = {navController.navigate(StartScreen.Profile.name)}
+                onProfileButtonClicked = {navController.navigate(StartScreen.Profile.name)},
+                onReminderButtonClicked = {navController.navigate(StartScreen.AddReminder.name)}
             )
         }
         composable(route = StartScreen.Profile.name){
@@ -50,6 +50,13 @@ fun KotlinApp(
                 modifier = Modifier,
                 context = context,
                 onLogoutButtonClicked = {navController.navigate(StartScreen.Login.name)}
+            )
+        }
+        composable(route = StartScreen.AddReminder.name){
+            AddReminder(
+                modifier = Modifier,
+                context = context,
+                onBackButtonClicked = {navController.navigate(StartScreen.Home.name)}
             )
         }
     }

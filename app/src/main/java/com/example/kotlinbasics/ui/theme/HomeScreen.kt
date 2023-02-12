@@ -5,8 +5,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +24,8 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun HomeScreen(
     modifier: Modifier,
-    onProfileButtonClicked: () -> Unit = {}
+    onProfileButtonClicked: () -> Unit = {},
+    onReminderButtonClicked: () -> Unit = {}
 ) {
     Scaffold(
         topBar = {
@@ -31,7 +34,28 @@ fun HomeScreen(
                 )
         },
         content = {
-            LazyColumnDemo(modifier = modifier)
+            Column(
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                LazyColumnDemo(modifier = modifier)
+
+            }
+        },
+        bottomBar = {
+            Row(
+                horizontalArrangement = Arrangement.Center
+            ) {
+                FloatingActionButton(
+                    onClick = onReminderButtonClicked,
+                    contentColor = Color.Blue,
+                    modifier = Modifier.padding(all = 20.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Add,
+                        contentDescription = null
+                    )
+                }
+            }
         }
     )
 }
@@ -81,28 +105,36 @@ fun LazyColumnDemo(modifier: Modifier) {
                 "Reminder1: Date" -> {
                     Spacer(modifier = modifier.height(10.dp))
                     Button(onClick = {},
-                    modifier = modifier.padding(6.dp).fillMaxWidth()) {
+                    modifier = modifier
+                        .padding(6.dp)
+                        .fillMaxWidth()) {
                         Text(text = item, style = TextStyle(fontSize = 20.sp))
                     }
                 }
                 "Reminder2: Date" -> {
                     Spacer(modifier = modifier.height(10.dp))
                     Button(onClick = {},
-                        modifier = modifier.padding(6.dp).fillMaxWidth()) {
+                        modifier = modifier
+                            .padding(6.dp)
+                            .fillMaxWidth()) {
                         Text(text = item, style = TextStyle(fontSize = 20.sp))
                     }
                 }
                 "Reminder3: Date" -> {
                     Spacer(modifier = modifier.height(10.dp))
                     Button(onClick = {},
-                        modifier = modifier.padding(6.dp).fillMaxWidth()) {
+                        modifier = modifier
+                            .padding(6.dp)
+                            .fillMaxWidth()) {
                         Text(text = item, style = TextStyle(fontSize = 20.sp))
                     }
                 }
                 "Reminder4: Date" -> {
                     Spacer(modifier = modifier.height(10.dp))
                     Button(onClick = {},
-                        modifier = modifier.padding(6.dp).fillMaxWidth()) {
+                        modifier = modifier
+                            .padding(6.dp)
+                            .fillMaxWidth()) {
                         Text(text = item, style = TextStyle(fontSize = 20.sp))
                     }
                 }
@@ -111,7 +143,9 @@ fun LazyColumnDemo(modifier: Modifier) {
                     Text(
                         text = item,
                         style = TextStyle(fontSize = 20.sp),
-                        modifier = modifier.padding(6.dp).fillMaxWidth()
+                        modifier = modifier
+                            .padding(6.dp)
+                            .fillMaxWidth()
                     )
                 }
             }

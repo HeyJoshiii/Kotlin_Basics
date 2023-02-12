@@ -9,9 +9,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,7 +27,7 @@ fun ProfileScreen(
     context: Context,
     onLogoutButtonClicked: () -> Unit = {}
 ) {
-    val (storedUsername, storedPassword) = loginInfo()
+    var (storedUsername, storedPassword) = loginInfo()
     val username = remember { mutableStateOf(storedUsername) }
     val password = remember { mutableStateOf(storedPassword) }
 
